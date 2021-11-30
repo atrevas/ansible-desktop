@@ -4,15 +4,16 @@
   become: true
 
   tasks: 
-  - name: install packages
+  - name: Install basic utilities packages
     package:
       name: 
         - htop
         - neofetch
+        - ncdu
       state: present
 
-  - name: remove packages
+  - name: Remove unnecessary packages
     package:
       name:
-        - totem
+        - totem # Default Gnome Video Player
       state: absent
