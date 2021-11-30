@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks: 
+  - name: install packages
+    package:
+      name: 
+        - htop
+        - neofetch
+      state: present
+
+  - name: remove packages
+    package:
+      name:
+        - totem
+      state: absent
