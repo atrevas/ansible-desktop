@@ -4,6 +4,15 @@
   become: true
 
   tasks: 
+  - name: Install RPM Fusion Repositories
+    dnf:
+      name: 
+        - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-34.noarch.rpm
+        - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-34.noarch.rpm
+      disable_gpg_check: yes
+      state: present
+    when: ansible_distribution == 'Fedora' and ansible_distribution_version == '34'
+
   - name: Install basic utilities packages
     package:
       name: 
