@@ -54,6 +54,11 @@
         - gnome-shell-extension-appindicator
       state: present
 
+  - name: Install Flameshot
+    package:
+      name: flameshot
+      state: present
+
   - name: Remove unnecessary packages
     package:
       name:
