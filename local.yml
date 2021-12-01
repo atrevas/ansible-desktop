@@ -59,6 +59,11 @@
       name: flameshot
       state: present
 
+  - name: Install Flatpak
+    package:
+      name: flatpak
+      state: present
+
   - name: Remove unnecessary packages
     package:
       name:
