@@ -3,6 +3,14 @@
   connection: local
   become: true
 
+  pre_tasks:
+  - name: Upgrade packages and update dnf cache (Fedora)
+    dnf:
+      name: '*'
+      update_cache: yes
+      state: latest
+    when: ansible_distribution == 'Fedora'
+
   tasks: 
   - name: Install RPM Fusion Repositories
     dnf:
