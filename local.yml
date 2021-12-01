@@ -47,6 +47,13 @@
       name: okular
       state: present
 
+  - name: Install Gnome extensions packages
+    package:
+      name: 
+        - gnome-extensions-app
+        - gnome-shell-extension-appindicator
+      state: present
+
   - name: Remove unnecessary packages
     package:
       name:
