@@ -42,6 +42,11 @@
       name: vlc
       state: present
 
+  - name: Install Okular
+    package:
+      name: okular
+      state: present
+
   - name: Remove unnecessary packages
     package:
       name:
