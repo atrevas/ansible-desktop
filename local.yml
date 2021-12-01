@@ -29,6 +29,11 @@
         - ncdu
       state: present
 
+  - name: Install VLC
+    package:
+      name: vlc
+      state: present
+
   - name: Remove unnecessary packages
     package:
       name:
