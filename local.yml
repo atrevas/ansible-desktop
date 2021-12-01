@@ -29,6 +29,14 @@
         - ncdu
       state: present
 
+  - name: Install pdf utilities packages
+    package:
+      name:
+        - poppler-utils
+        - pdfarranger
+        - pdfgrep
+      state: present
+
   - name: Install VLC
     package:
       name: vlc
