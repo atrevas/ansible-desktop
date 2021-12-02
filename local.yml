@@ -12,12 +12,23 @@
     when: ansible_distribution == 'Fedora'
 
   tasks: 
+  - name: Add RPMFusion free gpg key
+    rpm_key:
+      key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
+      state: present
+    when: ansible_distribution == 'Fedora' and ansible_distribution_version == '34'
+
+  - name: Add RPMFusion nonfree gpg key
+    rpm_key:
+      key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+      state: present
+    when: ansible_distribution == 'Fedora' and ansible_distribution_version == '34'
+
   - name: Install RPM Fusion Repositories
     dnf:
       name: 
         - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-34.noarch.rpm
         - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-34.noarch.rpm
-      disable_gpg_check: yes
       state: present
     when: ansible_distribution == 'Fedora' and ansible_distribution_version == '34'
 
