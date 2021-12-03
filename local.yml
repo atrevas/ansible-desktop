@@ -4,6 +4,11 @@
   become: true
 
   pre_tasks:
+  - name: Run the equivalent of "apt update" as a separate step (Ubuntu)
+    apt:
+      update_cache: yes
+    when: ansible_distribution == 'Ubuntu'
+
   - name: Upgrade packages and update dnf cache (Fedora)
     dnf:
       name: '*'
