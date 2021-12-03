@@ -65,12 +65,13 @@
       state: present
     when: ansible_distribution == 'Fedora' 
 
-  - name: Install Gnome extensions packages
+  - name: Install Gnome extensions packages (Fedora)
     package:
       name: 
         - gnome-extensions-app
         - gnome-shell-extension-appindicator
       state: present
+    when: ansible_distribution == 'Fedora' 
 
   - name: Install Flameshot
     package:
