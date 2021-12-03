@@ -53,10 +53,12 @@
       name: vlc
       state: present
 
+  # Install Okular from the repository for Fedora
   - name: Install Okular
     package:
       name: okular
       state: present
+    when: ansible_distribution == 'Fedora' 
 
   - name: Install Gnome extensions packages
     package:
