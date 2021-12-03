@@ -86,5 +86,6 @@
   - name: Remove unnecessary packages
     package:
       name:
-        - totem # Default Gnome Video Player
+        - totem          # Default Gnome Video Player
+        - thunderbird    # Installed by default on Ubuntu
       state: absent
