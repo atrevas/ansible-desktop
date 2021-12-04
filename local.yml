@@ -98,6 +98,16 @@
       method: system
   #
 
+  # ---------------------------------------------------------------------------
+  # Install Anki via flatapk
+  #
+  - name: Install the Anki package from flathub
+    flatpak:
+      name: net.ankiweb.Anki
+      state: present
+      method: system
+  # ---------------------------------------------------------------------------
+
   - name: Remove unnecessary packages
     package:
       name:
