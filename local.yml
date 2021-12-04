@@ -83,10 +83,20 @@
       name: flameshot
       state: present
 
+  # Flatpak installation and configuration
+  #
   - name: Install Flatpak
     package:
       name: flatpak
       state: present
+
+  - name: Add the flathub flatpak repository remote to the installation
+    flatpak_remote:
+      name: flathub
+      state: present
+      flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+      method: system
+  #
 
   - name: Remove unnecessary packages
     package:
